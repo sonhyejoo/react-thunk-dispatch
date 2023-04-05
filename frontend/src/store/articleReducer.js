@@ -42,12 +42,13 @@ const articleReducer = (state = initialState, action) => {
     case LOAD_ARTICLES:
       let entries = {};
       action.articles.forEach((article) => (entries[article.id] = article));
-      // for (const id in entries) {
-      //   newState["entries"][id] = entries.id;
-      // }
       return { ...state, entries: entries };
     case ADD_ARTICLE:
-      return { ...state, entries: [...state.entries, action.article] };
+      let newArticle,
+        { id } = action.article;
+      let newState = state;
+      newState.entries[id] = newArticle;
+      return newState;
     default:
       return state;
   }
