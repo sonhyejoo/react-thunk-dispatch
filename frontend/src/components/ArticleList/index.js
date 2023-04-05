@@ -16,9 +16,9 @@ const ArticleList = () => {
     <div>
       <h1>Article List</h1>
       <ol>
-        {articles.map(({ id, title }) => (
+        {Object.keys(articles).map((id) => (
           <li key={id}>
-            <NavLink to={`/article/${id}`}>{title}</NavLink>
+            <NavLink to={`/article/${id}`}>{articles[id].title}</NavLink>
           </li>
         ))}
       </ol>
